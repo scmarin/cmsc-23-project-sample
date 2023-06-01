@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "577481271816",
+    "project_id": "hao-are-you",
+    "storage_bucket": "hao-are-you.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577481271816:android:b02ab742f695b5bef73fbd",
+        "android_client_info": {
+          "package_name": "com.example.hao_are_you"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577481271816-5sfafir2ie0jojbvptc6ln5qgu8l8brd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvdluvpX6jtUnzhg8DV-wiLMfqN6DBfBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577481271816-5sfafir2ie0jojbvptc6ln5qgu8l8brd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "577481271816-obkqqp23ctkac17r4h3tf64o0ha3aac0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.haoAreYou"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577481271816:android:d833b0058d35d98bf73fbd",
+        "android_client_info": {
+          "package_name": "com.example.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577481271816-5sfafir2ie0jojbvptc6ln5qgu8l8brd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvdluvpX6jtUnzhg8DV-wiLMfqN6DBfBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577481271816-5sfafir2ie0jojbvptc6ln5qgu8l8brd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "577481271816-obkqqp23ctkac17r4h3tf64o0ha3aac0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.haoAreYou"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
