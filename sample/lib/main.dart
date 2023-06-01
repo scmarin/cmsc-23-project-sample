@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sample/providers/auth_provider.dart';
 import 'package:sample/providers/entries_provider.dart';
+import 'package:sample/screens/entries-page.dart';
 import 'package:sample/screens/homepage.dart';
 import 'firebase_options.dart';
 
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
+        '/entries-page': (context) => EntriesPage()
       },
     );
   }

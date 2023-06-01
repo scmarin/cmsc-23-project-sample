@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sample/providers/entries_provider.dart';
 
 import 'package:sample/screens/authentication/login.dart';
+import 'package:sample/screens/entries-page.dart';
 
 import '../providers/auth_provider.dart';
 
@@ -18,6 +20,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    print(Timestamp.fromDate(
+        DateTime.parse(DateFormat("yyyy-MM-dd").format(DateTime.now()))
+            .add(const Duration(days: 1))));
     Stream<User?> userStream = context.watch<AuthProvider>().uStream;
     Stream<QuerySnapshot> entriesStream =
         context.watch<EntriesProvider>().entriesStream;
@@ -39,10 +44,19 @@ class _HomePageState extends State<HomePage> {
           return ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                      "${snapshot.data?.docs[index].data() as Map<String, dynamic>}"),
-                );
+                return Column(children: [
+                  ListTile(
+                    title: Text(
+                        "${snapshot.data?.docs[index].data() as Map<String, dynamic>}"),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        context.read<EntriesProvider>().getTodaysEntry(
+                            context.read<AuthProvider>().userObj?.uid);
+                        Navigator.pushNamed(context, "/entries-page");
+                      },
+                      child: const Text("See Entries"))
+                ]);
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const Divider(),

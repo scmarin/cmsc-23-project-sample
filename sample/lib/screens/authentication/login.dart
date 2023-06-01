@@ -71,6 +71,7 @@ class _LoginPageState extends State<LoginPage> {
           var result = await context
               .read<AuthProvider>()
               .signIn(emailController.text, passwordController.text);
+
           print(result);
           if (result == "unknown") {
             if (context.mounted) {

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class FirebaseEntriesAPI {
   static final FirebaseFirestore db = FirebaseFirestore.instance;
@@ -17,6 +18,25 @@ class FirebaseEntriesAPI {
       });
     });
     return entriesSnapshot;
+  }
+
+  Stream<QuerySnapshot> getEntryToday(String userDocRef) {
+    print(userDocRef);
+    final entryTodaySnapshot = db
+        .collection("entries")
+        .where("User DocRef", isEqualTo: userDocRef)
+        .where("Date Generated",
+            isGreaterThanOrEqualTo: Timestamp.fromDate(DateTime.parse(
+                DateFormat("yyyy-MM-dd").format(DateTime.now()))))
+        .where("Date Generated",
+            isLessThan: Timestamp.fromDate(
+                DateTime.parse(DateFormat("yyyy-MM-dd").format(DateTime.now()))
+                    .add(const Duration(days: 1))))
+        .snapshots();
+    print(entryTodaySnapshot.listen((event) {
+      print("today's data: ${event.docs.length}");
+    }));
+    return entryTodaySnapshot;
   }
 
   // Future<Map<String, dynamic>> getTodaysEntry(String docRef) async {
